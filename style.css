@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        linear-gradient(
+            rgba(7,18,36,.90),
+            rgba(7,18,36,.95)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(12px);
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    animation: glow 3s infinite;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #4da6ff;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+
+    animation: heroLoad 1.5s ease;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.tag {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border-radius: 50px;
+
+    background: rgba(31,111,255,.2);
+    border: 1px solid #1f6fff;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    background: #1f6fff;
+    border-radius: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: .4s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 15px #1f6fff,
+        0 0 30px #1f6fff;
+}
+
+.secondary {
+    background: #102447;
+}
+
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+}
+
+.card,
+.feature,
+.server-card {
+    background: rgba(13,31,61,.75);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 20px;
+    padding: 30px;
+
+    transition: .4s;
+}
+
+.card:hover,
+.feature:hover,
+.server-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 20px #1f6fff,
+        0 0 40px rgba(31,111,255,.5);
+}
+
+.card h2 {
+    font-size: 2rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 20px;
+}
+
+.features a {
+    color: white;
+    text-decoration: none;
+}
+
+.server-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 20px;
+}
+
+.server-card a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    background: #1f6fff;
+
+    color: white;
+    text-decoration: none;
+}
+
+.rules {
+    line-height: 2;
+    padding-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #040d18;
+}
+
+#topBtn {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #1f6fff;
+    color: white;
+
+    cursor: pointer;
+    display: none;
+
+    font-size: 18px;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 1s ease;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #1f6fff;
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px #1f6fff,
+            0 0 40px #1f6fff;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #1f6fff;
+    }
+}
+
+@keyframes heroLoad {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width:768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+}
